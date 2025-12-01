@@ -5,8 +5,10 @@ import finalproject.compile.application.compile.dto.CompileResponse;
 import finalproject.compile.application.compile.dto.CompileResultResponse;
 import finalproject.compile.application.compile.service.CompileApiService;
 import finalproject.compile.application.compile.service.CompileResultService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -21,7 +23,7 @@ public class CompileController {
      * 코드 실행 요청 API
      */
     @PostMapping("/run")
-    public ResponseEntity<CompileResponse> run(@RequestBody CompileRequest request) {
+    public ResponseEntity<CompileResponse> run(@Valid @RequestBody CompileRequest request) {
         return ResponseEntity.ok(apiService.runCode(request));
     }
     /** 결과 조회 API */
