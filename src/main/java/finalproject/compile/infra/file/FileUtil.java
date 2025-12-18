@@ -47,6 +47,9 @@ public class FileUtil {
         if(!dir.exists()){
             dir.mkdirs(); // /tmp/compiler/{jobId}/
         }
+        dir.setReadable(true, false);
+        dir.setWritable(true, false);
+        dir.setExecutable(true, false);
 
         // 위에서 만든 디렉토리 내부에 fileName(Main.java) 생성
         File file = new File(dir, fileName);
